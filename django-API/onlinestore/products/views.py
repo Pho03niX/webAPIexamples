@@ -55,6 +55,7 @@ def manufacturer_detail(request,pk):
                     "name": manufacturer.name,
                     "location":manufacturer.location,
                     "active":manufacturer.active,
+                    "products":list(manufacturer_products.values())
 
                 }}
 
@@ -64,7 +65,7 @@ def manufacturer_detail(request,pk):
         response = JsonResponse({
             "error":{
                 "code":404,
-                "message":"product not found!"
+                "message":"manufacturer not found!"
             }},
             
             status=404)
